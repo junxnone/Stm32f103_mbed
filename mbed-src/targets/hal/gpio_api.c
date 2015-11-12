@@ -68,6 +68,6 @@ void gpio_dir(gpio_t *obj, PinDirection direction) {
     if (direction == PIN_OUTPUT) {
         pin_function(obj->pin, STM_PIN_DATA(GPIO_Mode_Out_PP, 0));
     } else { // PIN_INPUT
-        pin_function(obj->pin, STM_PIN_DATA(GPIO_Mode_IN_FLOATING, 0));
+        pin_function(obj->pin, STM_PIN_DATA(GPIO_Mode_IPU, 0));
     }
 }

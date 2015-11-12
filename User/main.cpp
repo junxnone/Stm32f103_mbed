@@ -1,5 +1,5 @@
 #include "mbed.h"
-
+#include "ds18b20.h"
 //Serial pc(PC_10, PC_11);//UART4
 //Serial pc(PC_12, PD_2);//UART5
 Serial pc(PD_5, PD_6);//USART2
@@ -8,6 +8,8 @@ DigitalOut myled1(PD_13);
 
 DigitalOut myled2(PG_14);
 
+
+DigitalIn	 Input1(PD_15);
 AnalogOut myDAC1(PA_4);
 AnalogOut myDAC2(PA_5);
 
@@ -39,13 +41,30 @@ void task1(void)
 
 
 int main() {
+	int i=0;
+	short temperature;
 	PWM2.period_ms(20);
-	 PWM2.pulsewidth_ms(10);
-	
-	
+	PWM2.pulsewidth_ms(10);
+	pc1.printf("Start DS18B20 Init ...");
+	while(DS18B20_Init())
+		{
+		wait_ms(1000); 
+		pc1.printf("DS18B20 Init Ing...");
+	}
+	while(1){
+	temperature=DS18B20_Get_Temp();	
+			pc1.printf("Get Temperature : %.1f\n",temperature/10.0);
+		wait_ms(1000);
+	}
+		
+		
 	while(1){
 		task1();
+		pc1.printf("Input1 = %d\r\n", (int)Input1 );
+		myled1=1;
+		for(i=0;i<50000;i++){__nop();}
+		myled1=0;
+		for(i=0;i<100000;i++){__nop();}
 	}
 }
-
 
