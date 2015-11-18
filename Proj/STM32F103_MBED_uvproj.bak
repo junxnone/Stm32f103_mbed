@@ -350,7 +350,7 @@
               <MiscControls>--gnu --no_rtti </MiscControls>
               <Define>TARGET_NUCLEO_F103ZE,  TARGET_M3,  TARGET_STM,  TARGET_STM32F1,  TARGET_STM32F103RB,  TOOLCHAIN_ARM_MICRO,  TOOLCHAIN_ARM,  __CORTEX_M3,  ARM_MATH_CM3,  MBED_BUILD_TIMESTAMP=1414999514.99,  __MBED__=1,  TARGET_FF_ARDUINO,  TARGET_FF_MORPHO,  __ASSERT_MSG,</Define>
               <Undefine></Undefine>
-              <IncludePath>..\mbed-src\api;..\mbed-src\hal;..\mbed-src\targets\hal;..\mbed-src\targets\cmsis;..\mbed-src\targets\cmsis\TARGET_STM;..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO</IncludePath>
+              <IncludePath>..\mbed-src\api;..\mbed-src\hal;..\mbed-src\targets\hal;..\mbed-src\targets\cmsis;..\mbed-src\targets\cmsis\TARGET_STM;..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO;..\User\delay;..\User\DS18B20;..\User\sys;..\User\usart</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -406,6 +406,16 @@
               <FileName>main.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\User\main.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>usart.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\usart\usart.c</FilePath>
+            </File>
+            <File>
+              <FileName>sys_nvic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>..\User\sys\sys_nvic.c</FilePath>
             </File>
           </Files>
         </Group>
@@ -841,6 +851,16 @@
               <FileName>system_stm32f10x.c</FileName>
               <FileType>1</FileType>
               <FilePath>..\mbed-src\targets\cmsis\TARGET_STM\system_stm32f10x.c</FilePath>
+            </File>
+          </Files>
+        </Group>
+        <Group>
+          <GroupName>DeviceLib</GroupName>
+          <Files>
+            <File>
+              <FileName>ds18b20.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\DS18B20\ds18b20.cpp</FilePath>
             </File>
           </Files>
         </Group>
