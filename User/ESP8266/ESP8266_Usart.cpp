@@ -74,10 +74,7 @@ void ESP8266_CloseSerialNet()
 {
 
 }
-void ESP8266_Ds18b20UpdateLeWei50()
-{
 
-}
 void ESP8266_WaitmS(u32 Ms)
 {
 	ESP8266_SysTickCache=GetSysTickLow();
@@ -127,7 +124,164 @@ u8 IsErr()
 		}
 		else return 0;
 }
-
+void ESP8266_Ds18b20UpdateLeWei50(float UpdateData)
+{
+		static float UpdateDataCache;
+	//static u8 Step=0;
+  static char CmdBuf[100]={0};
+	static char Cmd2Buf[100]={0};
+	int i;
+	if(DelayIsOver()){
+		DebugStep(Step);
+		if(0x00==Step){
+			ESP8266_ATCmdSend("AT+RST\r\n","ready\r\n",0,3000);
+			Step |=0x80;
+			return;
+		}
+		if(0x80==Step){
+			if(ESP8266_AckVerify()){
+					Step &=0x7F;
+					Step++;
+					
+			}
+			else{
+				Step &=0x7F;
+			}
+		}
+		if(0x01==Step){
+			ESP8266_ATCmdSend("AT+CWJAP=\"Go\",\"xiaomi12\"\r\n","OK\r\n",4,5000);
+			Step |=0x80;
+			return;
+		}
+		if(0x81==Step){
+			if(ESP8266_AckVerify()){
+					Step &=0x7F;
+					Step++;
+			}
+			else{
+				Step &=0x7F;
+				if(IsErr()){
+					Step=0;
+				}
+			}
+		}
+		if(0x02==Step){
+			ESP8266_ATCmdSend("AT+CIFSR\r\n","OK\r\n",4,5000);
+			Step |=0x80;
+			return;
+		}
+		if(0x82==Step){
+			if(ESP8266_AckVerify()){
+					Step &=0x7F;
+					Step++;
+			}
+			else{
+				Step &=0x7F;
+				if(IsErr()){
+					Step=0;
+				}
+			}
+		}
+		if(0x03==Step){
+			ESP8266_ATCmdSend("AT+CIPSTART=\"TCP\",\"42.121.128.216\",9960\r\n","OK\r\n",4,3000);
+			//ESP8266_ATCmdSend("AT+CIPSTART=\"TCP\",\"192.168.31.243\",8647\r\n","OK\r\n",4,3000);
+			Step |=0x80;
+			return;
+		}
+		if(0x83==Step){
+			if(ESP8266_AckVerify()){
+					Step &=0x7F;
+					Step++;
+			}
+			else{
+				//ESP8266_Usart.printf("AT+CIPCLOSE\r\n");
+				Step &=0x7F;
+				if(IsErr()){
+					Step=0;
+				}
+			}
+		}
+		if(0x04==Step){
+			sprintf(Cmd2Buf,"{\"method\": \"update\",\"gatewayNo\": \"03\",\"userkey\": \"f7c5b45dfca844bfab610cc999529882\"}&^!");
+			i=strlen(Cmd2Buf);
+			sprintf(CmdBuf,"AT+CIPSEND=%d\r\n",i);
+			ESP8266_ATCmdSend(CmdBuf,"OK\r\n> ",6,3000);
+			Step |=0x80;
+			return;
+		}
+		if(0x84==Step){
+			if(ESP8266_AckVerify()){
+					Step &=0x7F;
+					Step++;
+			}
+			else{
+				Step &=0x7F;
+				if(IsErr()){
+					Step=3;
+				}
+			}
+		}
+		if(0x05==Step){
+			ESP8266_ATCmdSend(Cmd2Buf,"OK\r\n> ",4,3000);
+			Step |=0x80;
+			return;
+		}
+		if(0x85==Step){
+			if(ESP8266_AckVerify()){
+					Step &=0x7F;
+					Step++;
+			}
+			else{
+				Step &=0x7F;
+				if(IsErr()){
+					Step=3;
+				}
+			}
+		}
+		if(0x06==Step){
+			UpdateDataCache=UpdateData;
+			sprintf(Cmd2Buf,"{\"method\":\"upload\",\"data\":[{\"Name\":\"PM25\",\"Value\":\"%.1f\"}]}&^!",UpdateDataCache);
+			i=strlen(Cmd2Buf);
+			sprintf(CmdBuf,"AT+CIPSEND=%d\r\n",i);
+			ESP8266_ATCmdSend(CmdBuf,"OK\r\n> ",6,3000);
+		
+			Step |=0x80;
+			return;
+		}
+		if(0x86==Step){
+			if(ESP8266_AckVerify()){
+					Step &=0x7F;
+					Step++;
+			}
+			else{
+				Step &=0x7F;
+				if(IsErr()){
+					Step=3;
+				}
+			}
+		}
+		if(0x07==Step){
+			//sprintf(CmdBuf,"{\"method\":\"upload\",\"data\":[{\"Name\":\"PM25\",\"Value\":\"%.1f\"}]}&^!",UpdateDataCache);
+			ESP8266_ATCmdSend(Cmd2Buf,"OK\r\n",4,3000);
+			Step |=0x80;
+			return;
+		}
+		if(0x87==Step){
+			if(ESP8266_AckVerify()){
+					Step &=0x7F;
+					Step=4;
+			}
+			else{
+				Step=3;
+				Step &=0x7F;
+				
+			}
+		}
+	}
+	else{
+		return;
+	}
+}
 void ESP8266_Ds18b20UpdateTlinkIO(float Temp)
 {
 	static float TempCache;

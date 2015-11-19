@@ -4,12 +4,18 @@
 #include "SysTick.h"
 Serial pc1(PA_9, PA_10);//USART1
 
-DigitalOut myled1(PD_13);
+DigitalOut IRLED(PD_14);
 DigitalOut myled2(PG_14);
+AnalogIn	DustIn(PA_0);
+
 
 int main() {
 	float Temp=0;
+	u16 DustVal=0;
+	float DustVol;
+	float PM25Val;
 	short temperature;
+	char Cmd1Buf[100]={0};
 	u32 SysTick;
 	SysTick_Init();
 	
@@ -20,9 +26,20 @@ int main() {
 	while(1){
 		Temp++;
 		if(Temp>35)Temp=0;
+		IRLED.write(0);
+		wait_us(280);
+		DustVal=DustIn.read_u16();
+		wait_us(40);
+		IRLED.write(1);
+		wait_us(9680);
 		wait_ms(1000);
-		//pc1.printf("SYSTICK: %d\r\n",GetSysTickLow());
-		ESP8266_Ds18b20UpdateTlinkIO(Temp);
+		DustVol=DustVal*2*3.3/4096.0;
+		pc1.printf("DustIn Vol is %0.3f V\r\n",DustVol);
+		if(DustVol>0.45){
+			PM25Val=(DustVol-0.45)*1000/6.1;
+			pc1.printf("Dust Value is: %0.2fug/m3\r\n",PM25Val);
+		}
+		ESP8266_Ds18b20UpdateLeWei50(PM25Val);
 	}
 	
 	pc1.printf("Start DS18B20 Init ...");

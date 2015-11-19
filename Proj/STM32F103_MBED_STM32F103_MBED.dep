@@ -1,6 +1,6 @@
 Dependencies for Project 'STM32F103_MBED', Target 'STM32F103_MBED': (DO NOT MODIFY !)
 F (..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO\startup_stm32f10x_hd.s)(0x4D78AD5E)(--cpu Cortex-M3 --apcs=interwork --pd "__MICROLIB SETA 1" -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -o "..\Build\startup_stm32f10x_hd.o" --depend "..\Build\startup_stm32f10x_hd.d")
-F (..\User\main.cpp)(0x564D5D7D)(--cpp -c --cpu Cortex-M3 -D__MICROLIB -O0 --apcs=interwork -I..\mbed-src\api -I..\mbed-src\hal -I..\mbed-src\targets\hal -I..\mbed-src\targets\cmsis -I..\mbed-src\targets\cmsis\TARGET_STM -I..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO -I..\User\delay -I..\User\DS18B20 -I..\User\sys -I..\User -I..\User\ESP8266 --gnu --no_rtti -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DTARGET_NUCLEO_F103ZE -DTARGET_M3 -DTARGET_STM -DTARGET_STM32F1 -DTARGET_STM32F103RB -DTOOLCHAIN_ARM_MICRO -DTOOLCHAIN_ARM -D__CORTEX_M3 -DARM_MATH_CM3 -DMBED_BUILD_TIMESTAMP="1414999514.99" -D__MBED__="1" -DTARGET_FF_ARDUINO -DTARGET_FF_MORPHO -D__ASSERT_MSG -o "..\Build\main.o" --omf_browse "..\Build\main.crf" --depend "..\Build\main.d")
+F (..\User\main.cpp)(0x564D9930)(--cpp -c --cpu Cortex-M3 -D__MICROLIB -O0 --apcs=interwork -I..\mbed-src\api -I..\mbed-src\hal -I..\mbed-src\targets\hal -I..\mbed-src\targets\cmsis -I..\mbed-src\targets\cmsis\TARGET_STM -I..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO -I..\User\delay -I..\User\DS18B20 -I..\User\sys -I..\User -I..\User\ESP8266 --gnu --no_rtti -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DTARGET_NUCLEO_F103ZE -DTARGET_M3 -DTARGET_STM -DTARGET_STM32F1 -DTARGET_STM32F103RB -DTOOLCHAIN_ARM_MICRO -DTOOLCHAIN_ARM -D__CORTEX_M3 -DARM_MATH_CM3 -DMBED_BUILD_TIMESTAMP="1414999514.99" -D__MBED__="1" -DTARGET_FF_ARDUINO -DTARGET_FF_MORPHO -D__ASSERT_MSG -o "..\Build\main.o" --omf_browse "..\Build\main.crf" --depend "..\Build\main.d")
 I (..\mbed-src\api\mbed.h)(0x54607B07)
 I (..\mbed-src\api\platform.h)(0x5456BD5A)
 I (..\mbed-src\targets\hal\device.h)(0x547012DC)
@@ -100,7 +100,7 @@ I (..\mbed-src\api\wait_api.h)(0x5456BD5A)
 I (..\mbed-src\hal\sleep_api.h)(0x5456BD5A)
 I (..\mbed-src\api\rtc_time.h)(0x5456BD5A)
 I (..\User\DS18B20\ds18b20.h)(0x564BFD9B)
-I (..\User\ESP8266\ESP8266_Usart.h)(0x564D5D7D)
+I (..\User\ESP8266\ESP8266_Usart.h)(0x564D9176)
 I (..\User\SysTick.h)(0x564D33C8)
 F (..\User\pinbitband.h)(0x564BFD3B)()
 F (..\User\SysTick.c)(0x564D36EC)(-c --cpu Cortex-M3 -D__MICROLIB -O0 --apcs=interwork -I..\mbed-src\api -I..\mbed-src\hal -I..\mbed-src\targets\hal -I..\mbed-src\targets\cmsis -I..\mbed-src\targets\cmsis\TARGET_STM -I..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO -I..\User\delay -I..\User\DS18B20 -I..\User\sys -I..\User -I..\User\ESP8266 --gnu --no_rtti -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DTARGET_NUCLEO_F103ZE -DTARGET_M3 -DTARGET_STM -DTARGET_STM32F1 -DTARGET_STM32F103RB -DTOOLCHAIN_ARM_MICRO -DTOOLCHAIN_ARM -D__CORTEX_M3 -DARM_MATH_CM3 -DMBED_BUILD_TIMESTAMP="1414999514.99" -D__MBED__="1" -DTARGET_FF_ARDUINO -DTARGET_FF_MORPHO -D__ASSERT_MSG -o "..\Build\systick.o" --omf_browse "..\Build\systick.crf" --depend "..\Build\systick.d")
@@ -3271,7 +3271,7 @@ I (..\mbed-src\hal\sleep_api.h)(0x5456BD5A)
 I (..\mbed-src\api\rtc_time.h)(0x5456BD5A)
 I (..\User\pinbitband.h)(0x564BFD3B)
 I (..\User\DS18B20\ds18b20.h)(0x564BFD9B)
-F (..\User\ESP8266\ESP8266_Usart.cpp)(0x564D6CEE)(--cpp -c --cpu Cortex-M3 -D__MICROLIB -O0 --apcs=interwork -I..\mbed-src\api -I..\mbed-src\hal -I..\mbed-src\targets\hal -I..\mbed-src\targets\cmsis -I..\mbed-src\targets\cmsis\TARGET_STM -I..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO -I..\User\delay -I..\User\DS18B20 -I..\User\sys -I..\User -I..\User\ESP8266 --gnu --no_rtti -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DTARGET_NUCLEO_F103ZE -DTARGET_M3 -DTARGET_STM -DTARGET_STM32F1 -DTARGET_STM32F103RB -DTOOLCHAIN_ARM_MICRO -DTOOLCHAIN_ARM -D__CORTEX_M3 -DARM_MATH_CM3 -DMBED_BUILD_TIMESTAMP="1414999514.99" -D__MBED__="1" -DTARGET_FF_ARDUINO -DTARGET_FF_MORPHO -D__ASSERT_MSG -o "..\Build\esp8266_usart.o" --omf_browse "..\Build\esp8266_usart.crf" --depend "..\Build\esp8266_usart.d")
+F (..\User\ESP8266\ESP8266_Usart.cpp)(0x564D97C6)(--cpp -c --cpu Cortex-M3 -D__MICROLIB -O0 --apcs=interwork -I..\mbed-src\api -I..\mbed-src\hal -I..\mbed-src\targets\hal -I..\mbed-src\targets\cmsis -I..\mbed-src\targets\cmsis\TARGET_STM -I..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO -I..\User\delay -I..\User\DS18B20 -I..\User\sys -I..\User -I..\User\ESP8266 --gnu --no_rtti -I C:\Keil\ARM\RV31\INC -I C:\Keil\ARM\CMSIS\Include -I C:\Keil\ARM\Inc\ST\STM32F10x -DTARGET_NUCLEO_F103ZE -DTARGET_M3 -DTARGET_STM -DTARGET_STM32F1 -DTARGET_STM32F103RB -DTOOLCHAIN_ARM_MICRO -DTOOLCHAIN_ARM -D__CORTEX_M3 -DARM_MATH_CM3 -DMBED_BUILD_TIMESTAMP="1414999514.99" -D__MBED__="1" -DTARGET_FF_ARDUINO -DTARGET_FF_MORPHO -D__ASSERT_MSG -o "..\Build\esp8266_usart.o" --omf_browse "..\Build\esp8266_usart.crf" --depend "..\Build\esp8266_usart.d")
 I (..\mbed-src\api\mbed.h)(0x54607B07)
 I (..\mbed-src\api\platform.h)(0x5456BD5A)
 I (..\mbed-src\targets\hal\device.h)(0x547012DC)
@@ -3370,5 +3370,5 @@ I (..\mbed-src\hal\gpio_irq_api.h)(0x5456BD5A)
 I (..\mbed-src\api\wait_api.h)(0x5456BD5A)
 I (..\mbed-src\hal\sleep_api.h)(0x5456BD5A)
 I (..\mbed-src\api\rtc_time.h)(0x5456BD5A)
-I (..\User\ESP8266\ESP8266_Usart.h)(0x564D5D7D)
+I (..\User\ESP8266\ESP8266_Usart.h)(0x564D9176)
 I (..\User\SysTick.h)(0x564D33C8)

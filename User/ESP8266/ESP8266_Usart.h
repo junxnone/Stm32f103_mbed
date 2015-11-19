@@ -19,7 +19,7 @@ void ESP8266_StartTCPClient(const char *IP,uint16_t Port);
 void ESP8266_GetIp();
 void ESP8266_StartSerialNet();
 void ESP8266_CloseSerialNet();
-void ESP8266_Ds18b20UpdateLeWei50();	
+void ESP8266_Ds18b20UpdateLeWei50(float UpdateData);	
 void ESP8266_Ds18b20UpdateTlinkIO(float i);	
 u8 ESP8266_AckVerify();
 
