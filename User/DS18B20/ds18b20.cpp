@@ -1,8 +1,10 @@
 #include "mbed.h"
 #include "stm32f10x.h"
+#include "pinbitband.h"
 #include "ds18b20.h"
 
 DigitalInOut Ds18b20_1(PC_11,PIN_OUTPUT,PullNone,1);
+
 
 //¸´Î»DS18B20
 void DS18B20_Rst(void)	   
