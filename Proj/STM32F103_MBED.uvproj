@@ -350,7 +350,7 @@
               <MiscControls>--gnu --no_rtti </MiscControls>
               <Define>TARGET_NUCLEO_F103ZE,  TARGET_M3,  TARGET_STM,  TARGET_STM32F1,  TARGET_STM32F103RB,  TOOLCHAIN_ARM_MICRO,  TOOLCHAIN_ARM,  __CORTEX_M3,  ARM_MATH_CM3,  MBED_BUILD_TIMESTAMP=1414999514.99,  __MBED__=1,  TARGET_FF_ARDUINO,  TARGET_FF_MORPHO,  __ASSERT_MSG,</Define>
               <Undefine></Undefine>
-              <IncludePath>..\mbed-src\api;..\mbed-src\hal;..\mbed-src\targets\hal;..\mbed-src\targets\cmsis;..\mbed-src\targets\cmsis\TARGET_STM;..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO;..\User\delay;..\User\DS18B20;..\User\sys;..\User;..\User\ESP8266</IncludePath>
+              <IncludePath>..\mbed-src\api;..\mbed-src\hal;..\mbed-src\targets\hal;..\mbed-src\targets\cmsis;..\mbed-src\targets\cmsis\TARGET_STM;..\mbed-src\targets\cmsis\TARGET_STM\TOOLCHAIN_ARM_MICRO;..\User\delay;..\User\DS18B20;..\User\sys;..\User;..\User\ESP8266;..\User\GP2Y1010au</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -866,6 +866,11 @@
               <FileName>ESP8266_Usart.cpp</FileName>
               <FileType>8</FileType>
               <FilePath>..\User\ESP8266\ESP8266_Usart.cpp</FilePath>
+            </File>
+            <File>
+              <FileName>GP2Y1010au.cpp</FileName>
+              <FileType>8</FileType>
+              <FilePath>..\User\GP2Y1010au\GP2Y1010au.cpp</FilePath>
             </File>
           </Files>
         </Group>
